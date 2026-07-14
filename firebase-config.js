@@ -3,12 +3,13 @@
 // Projekteinstellungen -> Allgemein -> "Meine Apps" -> Web-App
 
 const firebaseConfig = {
-  apiKey: "DEIN_API_KEY",
-  authDomain: "DEIN_PROJEKT.firebaseapp.com",
-  projectId: "DEIN_PROJEKT",
-  storageBucket: "DEIN_PROJEKT.appspot.com",
-  messagingSenderId: "DEINE_SENDER_ID",
-  appId: "DEINE_APP_ID"
+  apiKey: "AIzaSyCK75SIikOvrsTP3sMPhG-_NYh66Xk-Ht4",
+  authDomain: "listopia-ab8f5.firebaseapp.com",
+  projectId: "listopia-ab8f5",
+  storageBucket: "listopia-ab8f5.firebasestorage.app",
+  messagingSenderId: "251014248829",
+  appId: "1:251014248829:web:9107ab53125b4915ebb414"
 };
-
+ 
 firebase.initializeApp(firebaseConfig);
+ 
