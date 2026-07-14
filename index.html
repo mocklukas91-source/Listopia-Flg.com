@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SaS Login</title>
+
+  <!-- Tailwind + daisyUI über CDN, statt lokaler Kopie -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <div class="relative flex flex-col justify-center h-screen overflow-hidden">
+    <div class="w-full p-6 m-auto bg-white rounded-md shadow-md lg:max-w-lg">
+
+      <!-- LOGIN -->
+      <div id="login-box">
+        <h1 class="text-3xl font-semibold text-center text-purple-700">Login Schule als Staat-Software</h1>
+
+        <div class="space-y-4">
+          <div id="login_form">
+            <div>
+              <label class="label"><span class="text-base label-text">Nutzer</span></label>
+              <input type="text" placeholder="Benutzername" autocapitalize="none" autocomplete="username"
+                     maxlength="64" required id="login-username" class="w-full input input-bordered input-primary">
+            </div>
+            <div>
+              <label class="label"><span class="text-base label-text">Passwort</span></label>
+              <input type="password" placeholder="Passwort" autocomplete="current-password" required
+                     id="login-password" class="w-full input input-bordered input-primary">
+            </div>
+            <br>
+            <div>
+              <button class="btn btn-primary w-full" onclick="login()">Login</button>
+            </div>
+            <p id="login-message" class="text-sm text-red-500 mt-2 text-center min-h-[20px]"></p>
+            <p class="text-sm text-center mt-2">
+              Noch kein Konto?
+              <a class="text-purple-700 font-semibold cursor-pointer" onclick="showRegister()">Registrieren</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- REGISTRIERUNG -->
+      <div id="register-box" class="hidden">
+        <h1 class="text-3xl font-semibold text-center text-purple-700">Registrieren</h1>
+
+        <div class="space-y-4">
+          <div>
+            <label class="label"><span class="text-base label-text">Nutzer</span></label>
+            <input type="text" placeholder="Benutzername" autocapitalize="none" maxlength="64" required
+                   id="register-username" class="w-full input input-bordered input-primary">
+          </div>
+          <div>
+            <label class="label"><span class="text-base label-text">Passwort</span></label>
+            <input type="password" placeholder="Passwort (mind. 6 Zeichen)" required
+                   id="register-password" class="w-full input input-bordered input-primary">
+          </div>
+          <br>
+          <div>
+            <button class="btn btn-primary w-full" onclick="register()">Registrieren</button>
+          </div>
+          <p id="register-message" class="text-sm text-red-500 mt-2 text-center min-h-[20px]"></p>
+          <p class="text-sm text-center mt-2">
+            Schon ein Konto?
+            <a class="text-purple-700 font-semibold cursor-pointer" onclick="showLogin()">Zum Login</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- EINGELOGGTER BEREICH -->
+      <div id="app-box" class="hidden text-center">
+        <h1 class="text-3xl font-semibold text-purple-700">Willkommen, <span id="welcome-username"></span>!</h1>
+        <p class="mt-4 text-base">Du bist erfolgreich eingeloggt.</p>
+        <button class="btn btn-primary w-full mt-6" onclick="logout()">Ausloggen</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+
+  <script src="firebase-config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
